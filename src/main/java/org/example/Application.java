@@ -1,8 +1,10 @@
 package org.example;
 
 import DAO.EventoDAO;
-import entities.Evento;
-import entities.TipoEvento;
+import DAO.LocationDAO;
+import DAO.PartecipazioneDAO;
+import DAO.PersonaDAO;
+import entities.*;
 import exeption.EventoNonTrovato;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -17,37 +19,20 @@ public class Application {
     public static void main(String[] args) {
 
         EntityManager em = emf.createEntityManager();
-        EventoDAO ed = new EventoDAO(em);
+        EventoDAO evento = new EventoDAO(em);
+        PersonaDAO persona = new PersonaDAO(em);
+        LocationDAO location = new LocationDAO(em);
+        PartecipazioneDAO partecipazione = new PartecipazioneDAO(em);
 
-//        Evento uno = new Evento("Festival dei fiori", "2024-06-12", "musica e fiori", TipoEvento.PUBBLICO, 10000);
-//        Evento due = new Evento("ACDC party", "2024-07-18", "reunion", TipoEvento.PRIVATO, 5000);
-//        Evento tre = new Evento("Pop event", "2024-08-23", "musica e balli", TipoEvento.PUBBLICO, 20000);
-//        Evento quattro = new Evento("Beach party", "2024-08-14", "party in riva al mare", TipoEvento.PUBBLICO, 50000);
-//
-//        ed.saveEvent(uno);
-//        ed.saveEvent(due);
-//        ed.saveEvent(tre);
-//        ed.saveEvent(quattro);
-        try {
-            Evento uno = ed.trovaEvento(2);
-            System.out.println(uno);
-        } catch (EventoNonTrovato ex) {
-            System.out.println(ex.getMessage());
-        }
+        Location location1 = new Location("giardino fiorito", "tokyo");
+        Evento uno = new Evento("Festival dei fiori", "2024-06-12", "musica e fiori", TipoEvento.PUBBLICO, 10000, location1);
+        Persona nuova = new Persona("marco","rossi","marcorossi@gmail.com", 1998, Sesso.M);
+        Partecipazione partecipazione1 = new Partecipazione(nuova,uno,Stato.CONFERMATA);
 
-        try {
-            Evento uno = ed.trovaEvento(20);
-            System.out.println(uno);
-        } catch (EventoNonTrovato ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        try {
-            ed.eleminaEvento(4);
-        } catch (EventoNonTrovato ex) {
-            System.out.println(ex.getMessage());
-        }
-
+        location.saveLocation(location1);
+        evento.saveEvent(uno);
+        persona.savePersona(nuova);
+        partecipazione.savePartecipazione(partecipazione1);
 
     }
 }

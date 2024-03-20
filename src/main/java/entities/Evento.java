@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "evento")
@@ -30,9 +31,16 @@ public class Evento {
 
     @Column(name = "posti_disponibili")
     private double postiDisponibili;
+
+    @ManyToOne
+    @JoinColumn(name="id_location", nullable=false)
+    private Location location;
+
+    @OneToMany(mappedBy = "evento")
+    private List<Partecipazione> partecipazioni;
     public Evento(){}
 
-    public Evento(String titolo, String dataEvento, String descrizione, TipoEvento tipoEvento, double postiDisponibili) {
+    public Evento(String titolo, String dataEvento, String descrizione, TipoEvento tipoEvento, double postiDisponibili, Location location) {
         SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
         Date data = null;
         try {
@@ -45,6 +53,7 @@ public class Evento {
         this.descrizione = descrizione;
         this.tipoEvento = tipoEvento;
         this.postiDisponibili = postiDisponibili;
+        this.location = location;
     }
 
     public long getId() {
