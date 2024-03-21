@@ -1,11 +1,14 @@
 package DAO;
 
+import entities.Concerto;
 import entities.Evento;
+import entities.Genere;
 import exeption.EventoNonTrovato;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
 import javax.swing.text.html.parser.Entity;
+import java.util.List;
 
 public class EventoDAO {
     private final EntityManager em;
@@ -35,5 +38,17 @@ public class EventoDAO {
         em.remove(evento);
         transaction.commit();
         System.out.println("Evento con id " + evento.getTitolo() + " eliminato correttamente!");
+    }
+
+    public List<Concerto> getConcertiInStreaming(boolean inStreaming) {
+        return em.createQuery("SELECT c FROM Concerto c WHERE c.inStreaming = :inStreaming", Concerto.class)
+                .setParameter("inStreaming", inStreaming)
+                .getResultList();
+    }
+
+    public List<Concerto> getConcertiPerGenere(Genere genere) {
+        return em.createQuery("SELECT c FROM Concerto c WHERE c.genere = :genere", Concerto.class)
+                .setParameter("genere", genere)
+                .getResultList();
     }
 }

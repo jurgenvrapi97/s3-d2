@@ -11,8 +11,8 @@ import java.util.List;
 
 @Entity
 @Table(name = "evento")
-
-public class Evento {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class Evento {
     @Id
     @GeneratedValue
     private long id;

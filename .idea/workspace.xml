@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f81930b5-b898-41a8-8588-012b23cbd61a" name="Changes" comment="finito">
-      <change afterPath="$PROJECT_DIR$/src/main/java/DAO/LocationDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DAO/PartecipazioneDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DAO/PersonaDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Location.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Partecipazione.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Persona.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Sesso.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Stato.java" afterDir="false" />
+    <list default="true" id="f81930b5-b898-41a8-8588-012b23cbd61a" name="Changes" comment="esercizi collegamento tabelle">
+      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Concerto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entities/GaraDiAtletica.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Genere.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entities/PartitaDiCalcio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/EventoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/EventoDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Evento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/TipoEvento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/TipoEvento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Application.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -52,6 +50,11 @@
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jurge\OneDrive\Escritorio\todos\epicode_backend\s3-d2\src\main\java" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -76,11 +79,20 @@
       <option name="project" value="LOCAL" />
       <updated>1710861099985</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="esercizi collegamento tabelle">
+      <option name="closed" value="true" />
+      <created>1710948289305</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1710948289306</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="finito" />
-    <option name="LAST_COMMIT_MESSAGE" value="finito" />
+    <MESSAGE value="esercizi collegamento tabelle" />
+    <option name="LAST_COMMIT_MESSAGE" value="esercizi collegamento tabelle" />
   </component>
 </project>

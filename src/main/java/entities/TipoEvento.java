@@ -1,5 +1,5 @@
 package entities;
 
 public enum TipoEvento {
-   PUBBLICO,PRIVATO
+   CONCERTO,PARTITA_CALCIO,GARA_ATLETICA
 }

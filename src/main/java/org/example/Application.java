@@ -12,6 +12,7 @@ import jakarta.persistence.Persistence;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class Application {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("W3-D1");
@@ -20,19 +21,34 @@ public class Application {
 
         EntityManager em = emf.createEntityManager();
         EventoDAO evento = new EventoDAO(em);
-        PersonaDAO persona = new PersonaDAO(em);
-        LocationDAO location = new LocationDAO(em);
-        PartecipazioneDAO partecipazione = new PartecipazioneDAO(em);
+        LocationDAO loc = new LocationDAO(em);
 
-        Location location1 = new Location("giardino fiorito", "tokyo");
-        Evento uno = new Evento("Festival dei fiori", "2024-06-12", "musica e fiori", TipoEvento.PUBBLICO, 10000, location1);
-        Persona nuova = new Persona("marco","rossi","marcorossi@gmail.com", 1998, Sesso.M);
-        Partecipazione partecipazione1 = new Partecipazione(nuova,uno,Stato.CONFERMATA);
+        Location location = new Location("san siro", "milano");
+        loc.saveLocation(location);
 
-        location.saveLocation(location1);
-        evento.saveEvent(uno);
-        persona.savePersona(nuova);
-        partecipazione.savePartecipazione(partecipazione1);
+//        Concerto concerto1 = new Concerto("ACDC", "2024-05-01", "La meglio musica rock", TipoEvento.CONCERTO, 2000, location, true);
+//        concerto1.setGenere(Genere.ROCK);
+//        concerto1.setInStreaming(true);
+//        evento.saveEvent(concerto1);
+//        Concerto concerto2 = new Concerto("Renato Zero", "2024-05-06", "il miglio cantautore", TipoEvento.CONCERTO, 100000, location, true);
+//        concerto2.setGenere(Genere.CLASSICO);
+//        concerto2.setInStreaming(false);
+//        evento.saveEvent(concerto2);
+
+
+        evento.getConcertiPerGenere(Genere.ROCK);
+
+        List<Concerto> concertiInStreaming = evento.getConcertiInStreaming(true);
+        System.out.println("Concerti in streaming:");
+        concertiInStreaming.forEach(System.out::println);
+
+        List<Concerto> concertiPerGenere = evento.getConcertiPerGenere(Genere.CLASSICO);
+        System.out.println("Concerti in streaming:");
+        concertiPerGenere.forEach(System.out::println);
+
+
+        em.close();
+        emf.close();
 
     }
 }
